@@ -75,7 +75,8 @@ if __name__ == "__main__":
   parser.add_argument('-t', metavar='TOPIC', required=True, help='topic(s) to change', nargs='+')
   args = parser.parse_args()
   try:
-      fix_bagfile(args.i, args.o, args.t, args.of)
+    for bagfile in args.i:
+      fix_bagfile(bagfile, args.o, args.t, args.of)
   except Exception as e:
-      import traceback
-      traceback.print_exc()
+    import traceback
+    traceback.print_exc()
